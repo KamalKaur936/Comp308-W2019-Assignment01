@@ -1,5 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+<style>
+/* Style inputs with type="text", select elements and textareas */
+input[type=text], select, textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */  
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+
+/* Add a background color and some padding around the form */
+.container {
+  border-radius: 15px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+</head>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -12,7 +46,8 @@
   </head>
   <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark" style="height:100px">
-      <a class="navbar-brand" href="/">COMP308</a>
+    <img src="Assets/images/kk-logo-2.JPG" height="150px" width="150px"/>
+      <a class="navbar-brand" href="/">Kamaljeet Kaur</a>
       <button
         class="navbar-toggler"
         type="button"
@@ -27,7 +62,7 @@
 
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
-          <% if(title == "Home") { %>
+          <% if(title == "Home Page") { %>
           <li class="nav-item active">
             <% } else { %>
           </li>
@@ -41,7 +76,9 @@
             >
           </li>
 
-          <li class="nav-item"><% if(title == "About") { %></li>
+          <li class="nav-item">
+          
+          <% if(title == "About Me") { %></li>
           <li class="nav-item active">
             <% } else { %>
           </li>
@@ -54,16 +91,16 @@
             >
           </li>
 
-          <% if(title == "Products") { %>
+          <% if(title == "Project Page") { %>
+        
           <li class="nav-item active">
             <% } else { %>
           </li>
 
           <li class="nav-item">
             <% } %>
-
-            <a class="nav-link" href="/products"
-              ><i class="fa fa-lg fa-briefcase"></i> Products</a
+            <a class="nav-link" href="/project"
+              ><i class="fa fa-lg fa-briefcase"></i> Projects</a
             >
           </li>
 
@@ -95,25 +132,158 @@
         </ul>
       </div>
     </nav>
+   
+<% if(title == "Home Page") { %>
+    <div class="container">
+      <div class="jumbotron">
+        <h1 class="display-4">Welcome to <%= title %></h1>
+        <p class="lead" style="font-size:30px;">
+          Explore our website to use services,you can also get some information about me and projects which I did during my course.
+        </p>
+        
+        <p class="lead">
+          <a class="btn btn-primary btn-lg" href="/about" role="button"
+            >About Me</a>
+            <a class="btn btn-primary btn-lg" href="/project" role="button" style="margin-left:10%"
+            >Project Page</a>
+            <a class="btn btn-primary btn-lg" href="/services" role="button" style="margin-left:10%"
+            >Service Page</a>
+            <a class="btn btn-primary btn-lg" href="/contact" role="button" style="margin-left:10%"
+            >Contact Me</a>
 
+        </p>
+      </div>
+    </div>
+           
+    <% } if(title == "About Me") { %>
+    <div class="row" >
+  <div class="column">
+    <h2 style="margin-left:7%; font-weight:bold">INTRODUCTION</h2>
+            <ul style="list-style-type:none; margin-left:5%">
+            <p>
+          My name is Kamaljeet Kaur. I will be graduating in April 2019 from Centennial College 
+          with a post-graduation diploma in Software Engineering Technology. I also have
+           bachelor’s degree in Computer Applications from my home country, India.•	During my 
+           studies in Centennial College, I developed my technical skills in various programming 
+           languages such as C#, .NET, Java, Java EE, HTML, CSS, NodeJS, mobile Applications
+            and cloud computing.
+        </p>
+        </ul>
+        </div>
+  <div class="column" style="margin-top:5%">
+   <img src="Assets/images/kamal.jpeg" height="350px" width="350px" style="margin-left:60%"/>
+  <div style="margin-left:70%; width:120%">
+   <a href = "Assets/images/resume.pdf" style="font-size:30px; font-weight:bold; color:blue; text-decoration:none">KAMALJEET KAUR</a>
+   <div>
+  </div>
+</div>
+      </div>
+    </div>
+
+     <% } if(title == "Project Page") { %>
     <div class="container">
       <div class="jumbotron">
         <h1 class="display-4">Welcome to <%= title %></h1>
         <p class="lead">
-          This is a simple hero unit, a simple jumbotron-style component for
-          calling extra attention to featured content or information.
+          You can click on this button to check the projects:
         </p>
-        <hr class="my-4" />
-        <p>
-          It uses utility classes for typography and spacing to space content
-          out within the larger container.
-        </p>
+    
         <p class="lead">
-          <a class="btn btn-primary btn-lg" href="#" role="button"
-            >Learn more</a
-          >
+         <a class="btn btn-primary btn-lg" href="/projectList" role="button"
+            >List Of Projects</a>
         </p>
       </div>
     </div>
+
+     <% } if(title == "Service Page") { %>
+    <div class="container">
+      <div class="jumbotron">
+        <h1 class="display-4">Welcome to <%= title %></h1>
+
+        <p class="lead">
+          These are some services which we are providing.
+        </p>
+        <div class="column" style="margin-top:5%">
+   <img src="Assets/images/services.png" height="350px" width="350px" style="margin-left:60%"/>
+  <div style="margin-left:50%; width:80%">
+   <a href = "/" style="font-size:25px; font-weight:bold; color:blue; text-decoration:none">SOFTWARE OUTSOURCING SERVICES</a>
+   <div>
+  </div>
+</div>
+    <div class="column" style="margin-top:5%">
+   <img src="Assets/images/software.jpg" height="350px" width="350px" style="margin-left:10%"/>
+  <div style="margin-left:5%; width:120%">
+   <a href = "/" style="font-size:25px; font-weight:bold; color:blue; text-decoration:none">SOFTWARE CONSULATION SERVICES</a>
+   <div>
+  </div>
+</div>
+
+    
+      </div>
+    </div>
+
+<% } if(title == "My Project List") { %>
+    <div class="container">
+      <div class="jumbotron">
+        <h1 class="display-4">Welcome to <%= title %></h1>
+        <table style="width:100%">
+  <tr>
+    <th>PROJECT NAME</th>
+    <th>DESCRIPTION</th> 
+  </tr>
+  <tr>
+    <td>Pizza Delivery</td>
+    <td>It is a mobile application used to order pizza</td> 
+  </tr>
+  <tr>
+    <td>Scheduling Applications</td>
+    <td>This is web application which can keep a track of person's daily schedule</td> 
+  </tr>
+</table>
+        </p>
+      </div>
+    </div>
+
+     <% } if(title == "Contact Me") { %>
+     <h1 style="FOnt-size: 60px; font-weight: bold; text-align: center;"> WELCOME </h1>
+    <br>
+    
+    <div class="container" style="width:1000px">
+   
+    <div class="panel panel-info" style="float:left; width:40%">
+      <div class="panel-heading" style="font-size:20px">KAMALJEET KAUR</div>
+      <div class="panel-body" style="font-size:20px">
+      <p >
+      <strong>Email:</strong> Kamalkaur936@gmail.com<br><br>
+      <strong>Call:</strong> +1(647)-937-8456<br>
+
+      </p>
+      </div>
+    </div>
+   
+ 
+  <form action="\" style="float:right; width:35%">
+<div style="font-size:15px">
+ 
+    <label for="fname">First Name</label>
+    <input type="text" id="fname" name="firstname" placeholder="Your First name..">
+
+    <label for="lname">Last Name</label>
+    <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+
+     <label for="email">Email Address</label>
+    <input type="text" id="emailAdd" name="emailAdd" placeholder="Your Email ID...">
+
+    <label for="subject">Subject</label>
+    <textarea id="subject" name="subject" placeholder="Write something.." style="height:200px"></textarea>
+
+    <input type="submit" value="Submit">
+    
+</div>
+  </form>
+</div>
+    </div>
+    
+    <% } %>
   </body>
 </html>
